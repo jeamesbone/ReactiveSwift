@@ -685,7 +685,7 @@ extension SignalProducer {
 		return lift { $0.filterMap(transform) }
 	}
 	
-	/// Yield the first `count` values from the input producer.
+	/// Yield the first `count` values from the input producer and then complete.
 	///
 	/// - precondition: `count` must be non-negative number.
 	///
@@ -693,7 +693,7 @@ extension SignalProducer {
 	///   - count: A number of values to take from the signal.
 	///
 	/// - returns: A producer that, when started, will yield the first `count`
-	///            values from `self`.
+	///            values from `self` and then complete.
 	public func take(first count: Int) -> SignalProducer<Value, Error> {
 		return lift { $0.take(first: count) }
 	}
